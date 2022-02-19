@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+   	<Title>CodeChops.GenericMath</Title>
+    <AssemblyName>CodeChops.GenericMath</AssemblyName>
+    <RootNamespace>CodeChops.GenericMath</RootNamespace>
+  	<PackageId>CodeChops.GenericMath</PackageId>
+    <Version>1.2.0</Version>
+	<Authors>Max Bergman (@Code-Chops)</Authors>
+    <Company>CodeChops</Company>
+	<TargetFramework>netstandard2.1</TargetFramework>
+	<PackageProjectUrl>https://github.com/code-chops/GenericMath</PackageProjectUrl>
+	<PackageTags>CodeChops;CodeChops.GenericMath;CodeChops.GenericMath;GenericMaths;GenericMath;Generic maths;Generic math;Generic integrals;Generic integral;Generic calculation;</PackageTags>
+	<RepositoryUrl>https://github.com/code-chops/GenericMath</RepositoryUrl>
+	<PublishRepositoryUrl>true</PublishRepositoryUrl>
+	<PackageIcon>icon.png</PackageIcon>
+	<Summary>Calculation with generic integral types</Summary>
+	<Description>Performs math functions on generic types (with an integral type as underlying value)</Description>
+	<LangVersion>10</LangVersion>	
+	<AnalysisLevel>latest</AnalysisLevel>
+	<Nullable>enable</Nullable>
+	<ImplicitUsings>enable</ImplicitUsings>
+	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+  	<None Include="Properties\icon.png" Pack="true" Visible="true" PackagePath="" />
+  </ItemGroup>
+
+  <PropertyGroup>
+  	<DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup>
+  	<!-- CA1822: Instance member does not access instance data and can be marked as static -->
+  	<!-- CS1573: Undocumented public symbol while -doc compiler option is used -->
+  	<!-- CS1591: Missing XML comment for publicly visible type -->
+  	<!-- CA1816: Dispose() should call GC.SuppressFinalize()-->
+  	<NoWarn>CA1822,CS1573,CS1591,CA1816</NoWarn>
+  	<DebugType>none</DebugType>
+  </PropertyGroup>
+</Project>
