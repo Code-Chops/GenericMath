@@ -1,6 +1,4 @@
-﻿using CodeChops.GenericMath;
-
-namespace CodeChops.MagicEnums.NativeIntegrals;
+﻿namespace CodeChops.GenericMath;
 
 /// <summary>
 /// From: https://codereview.stackexchange.com/questions/26022/generic-calculator-and-generic-number
