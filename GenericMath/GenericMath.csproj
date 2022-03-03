@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	<VersionPrefix>1.2.8</VersionPrefix>
-	<PackageReleaseNotes>Fixed namespacing</PackageReleaseNotes>
-	<TargetFramework>netstandard2.1</TargetFramework>
+	<VersionPrefix>1.3.0</VersionPrefix>
+	<PackageReleaseNotes>1.3.0: Rolled back to netstandard2.0</PackageReleaseNotes>
+	<TargetFramework>netstandard2.0</TargetFramework>
 	<LangVersion>10</LangVersion>
   </PropertyGroup>
 	
