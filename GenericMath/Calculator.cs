@@ -114,10 +114,7 @@ public static class Calculator<T>
 		}
 		catch
 		{
-			return (a, b) =>
-			{
-				throw new InvalidOperationException("Operator " + operatorName + " is not supported by type " + typeof(T).FullName + ".");
-			};
+			return (_, _) => throw new InvalidOperationException("Operator " + operatorName + " is not supported by type " + typeof(T).FullName + ".");
 		}
 	}
 
@@ -139,10 +136,7 @@ public static class Calculator<T>
 		}
 		catch
 		{
-			return a =>
-			{
-				throw new InvalidOperationException("Operator " + operatorName + " is not supported by type " + typeof(T).FullName + ".");
-			};
+			return _ => throw new InvalidOperationException("Operator " + operatorName + " is not supported by type " + typeof(T).FullName + ".");
 		}
 	}
 

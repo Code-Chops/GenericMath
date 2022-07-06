@@ -8,7 +8,7 @@ public readonly record struct Number<T>
 	where T : struct, IComparable<T>, IEquatable<T>, IConvertible
 {
 	public static Number<T> Empty { get; } = new();
-	public override string ToString() => $"{this.Value:F2}";
+	public override string ToString() => this.Value.ToString();
 
 	private T Value { get; }
 
