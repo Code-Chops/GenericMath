@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	<VersionPrefix>1.3.2</VersionPrefix>
-	<PackageReleaseNotes>Changed project file package creation and change gitignore.</PackageReleaseNotes>
-	<TargetFramework>netstandard2.0</TargetFramework>
+	<VersionPrefix>1.3.3</VersionPrefix>
+	<PackageReleaseNotes>Added IDomainObject to Number.</PackageReleaseNotes>
+	<TargetFramework>net6.0</TargetFramework>
 	<LangVersion>10</LangVersion>
   </PropertyGroup>
 	
@@ -34,6 +34,7 @@ https://codereview.stackexchange.com/questions/26022/generic-calculator-and-gene
 	<Nullable>enable</Nullable>
 	<ImplicitUsings>enable</ImplicitUsings>
 	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	<EnablePreviewFeatures>true</EnablePreviewFeatures>
   </PropertyGroup>
 
   <!-- Generate source generated output -->
@@ -56,6 +57,7 @@ https://codereview.stackexchange.com/questions/26022/generic-calculator-and-gene
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="codechops.domaindrivendesign.domainmodeling" Version="0.0.3" />
     <PackageReference Include="System.Text.Json" Version="6.0.5" />
   </ItemGroup>
 
