@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	<VersionPrefix>1.3.5</VersionPrefix>
-	<PackageReleaseNotes>Changed Value property to public.</PackageReleaseNotes>
+	<VersionPrefix>1.3.6</VersionPrefix>
+	<PackageReleaseNotes>Changed to non-readonly.</PackageReleaseNotes>
 	<TargetFramework>net6.0</TargetFramework>
 	<LangVersion>10</LangVersion>
   </PropertyGroup>

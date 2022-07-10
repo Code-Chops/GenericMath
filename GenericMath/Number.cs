@@ -6,13 +6,13 @@ namespace CodeChops.GenericMath;
 /// From: https://codereview.stackexchange.com/questions/26022/generic-calculator-and-generic-number
 /// </summary>
 /// <typeparam name="T">Integral type</typeparam>
-public readonly record struct Number<T> : IDomainObject
+public record struct Number<T> : IDomainObject
 	where T : struct, IComparable<T>, IEquatable<T>, IConvertible
 {
 	public static Number<T> Empty { get; } = new();
 	public override string? ToString() => this.Value.ToString();
 
-	public T Value { get; }
+	public T Value { get; set; }
 
 	public Number(T value)
 	{
