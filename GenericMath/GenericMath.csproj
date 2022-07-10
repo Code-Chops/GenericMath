@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	<VersionPrefix>1.3.4</VersionPrefix>
-	<PackageReleaseNotes>Fixed source generation output dir.</PackageReleaseNotes>
+	<VersionPrefix>1.3.5</VersionPrefix>
+	<PackageReleaseNotes>Changed Value property to public.</PackageReleaseNotes>
 	<TargetFramework>net6.0</TargetFramework>
 	<LangVersion>10</LangVersion>
   </PropertyGroup>

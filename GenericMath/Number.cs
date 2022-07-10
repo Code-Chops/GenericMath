@@ -12,7 +12,7 @@ public readonly record struct Number<T> : IDomainObject
 	public static Number<T> Empty { get; } = new();
 	public override string? ToString() => this.Value.ToString();
 
-	private T Value { get; }
+	public T Value { get; }
 
 	public Number(T value)
 	{
