@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	<VersionPrefix>1.4.0</VersionPrefix>
-	<PackageReleaseNotes>Number is not a domain object anymore.</PackageReleaseNotes>
+	<VersionPrefix>1.4.1</VersionPrefix>
+	<PackageReleaseNotes>Added INUmber interface.</PackageReleaseNotes>
 	<TargetFramework>net6.0</TargetFramework>
 	<LangVersion>10</LangVersion>
   </PropertyGroup>
