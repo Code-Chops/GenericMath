@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	<VersionPrefix>1.4.4</VersionPrefix>
-	<PackageReleaseNotes>Removed IValueObject to Number (cycle references).</PackageReleaseNotes>
+	<VersionPrefix>1.4.5</VersionPrefix>
+	<PackageReleaseNotes>Made Number partial.</PackageReleaseNotes>
 	<TargetFramework>net6.0</TargetFramework>
 	<LangVersion>10</LangVersion>
   </PropertyGroup>

@@ -4,7 +4,7 @@
 /// From: https://codereview.stackexchange.com/questions/26022/generic-calculator-and-generic-number
 /// </summary>
 /// <typeparam name="T">Integral type</typeparam>
-public readonly record struct Number<T>(T Value) : INumber, IComparable<Number<T>>
+public readonly partial record struct Number<T>(T Value) : INumber, IComparable<Number<T>>
 	where T : struct, IComparable<T>, IEquatable<T>, IConvertible
 {
 	public static Number<T> Empty { get; } = new();
