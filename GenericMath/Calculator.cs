@@ -1,6 +1,4 @@
-﻿using System.Linq.Expressions;
-
-namespace CodeChops.GenericMath;
+﻿namespace CodeChops.GenericMath;
 
 /// <summary>
 /// Class to allow operations (like Add, Multiply, etc.) for generic types. This type should allow these operations themselves.

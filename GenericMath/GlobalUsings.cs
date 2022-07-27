@@ -1,1 +1,1 @@
-﻿global using CodeChops.DomainDrivenDesign.DomainModeling;
+﻿global using System.Linq.Expressions;
