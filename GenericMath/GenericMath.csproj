@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	<VersionPrefix>1.4.2</VersionPrefix>
-	<PackageReleaseNotes>Added IComparable interface. Made number readonly.</PackageReleaseNotes>
+	<VersionPrefix>1.4.3</VersionPrefix>
+	<PackageReleaseNotes>Added IValueObject to Number.</PackageReleaseNotes>
 	<TargetFramework>net6.0</TargetFramework>
 	<LangVersion>10</LangVersion>
   </PropertyGroup>
@@ -53,6 +53,7 @@ https://codereview.stackexchange.com/questions/26022/generic-calculator-and-gene
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="CodeChops.DomainDrivenDesign.DomainModeling" Version="0.0.5" />
     <PackageReference Include="System.Text.Json" Version="6.0.5" />
   </ItemGroup>
 
