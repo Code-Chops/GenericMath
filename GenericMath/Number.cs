@@ -4,18 +4,11 @@
 /// From: https://codereview.stackexchange.com/questions/26022/generic-calculator-and-generic-number
 /// </summary>
 /// <typeparam name="T">Integral type</typeparam>
-public record struct Number<T> : INumber 
+public readonly record struct Number<T>(T Value) : INumber, IComparable<Number<T>>
 	where T : struct, IComparable<T>, IEquatable<T>, IConvertible
 {
 	public static Number<T> Empty { get; } = new();
 	public override string? ToString() => this.Value.ToString();
-
-	public T Value { get; set; }
-
-	public Number(T value)
-	{
-		this.Value = value;
-	}
 
 	public static bool operator <(Number<T> a, Number<T> b)
 	{
@@ -103,6 +96,11 @@ public record struct Number<T> : INumber
 		if (number == null) throw new ArgumentNullException(nameof(number));
 
 		return new((T)Convert.ChangeType(number, typeof(T)));
+	}
+
+	public int CompareTo(Number<T> other)
+	{
+		return this.Value.CompareTo(other.Value);
 	}
 }
 

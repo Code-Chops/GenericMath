@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	<VersionPrefix>1.4.1</VersionPrefix>
-	<PackageReleaseNotes>Added INUmber interface.</PackageReleaseNotes>
+	<VersionPrefix>1.4.2</VersionPrefix>
+	<PackageReleaseNotes>Added IComparable interface. Made number readonly.</PackageReleaseNotes>
 	<TargetFramework>net6.0</TargetFramework>
 	<LangVersion>10</LangVersion>
   </PropertyGroup>
@@ -21,7 +21,7 @@
 	<PublishRepositoryUrl>true</PublishRepositoryUrl>
 	<PackageIcon>icon.png</PackageIcon>
 	<PackageLicenseFile>LICENSE</PackageLicenseFile>
-	<Copyright>Copyright (c) CodeChops 2022</Copyright>
+	<Copyright>Copyright (c) CodeChops $([System.DateTime]::Now.ToString(yyyy))</Copyright>
 	<Description>
 This package provides a way to perfrom math functions over 'generic integrals' as C# currently does not support this.
 The C# team is working on a way to have support for generic math natively, using abstract static interfaces.
