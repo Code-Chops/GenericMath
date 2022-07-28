@@ -8,8 +8,9 @@ public readonly partial record struct Number<T>(T Value) : INumber, IComparable<
 	where T : struct, IComparable<T>, IEquatable<T>, IConvertible
 {
 	public static Number<T> Empty { get; } = new();
+	public Type IntegralType { get; } = typeof(T);
 	public override string? ToString() => this.Value.ToString();
-
+	
 	public static bool operator <(Number<T> a, Number<T> b)
 	{
 		return a.Value.CompareTo(b.Value) < 0;

@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	<VersionPrefix>1.4.6</VersionPrefix>
-	<PackageReleaseNotes>Only release local package in release mode.</PackageReleaseNotes>
+	<VersionPrefix>1.4.7</VersionPrefix>
+	<PackageReleaseNotes>Added IntegralType.</PackageReleaseNotes>
 	<TargetFramework>net6.0</TargetFramework>
 	<LangVersion>10</LangVersion>
   </PropertyGroup>
@@ -34,8 +34,6 @@ https://codereview.stackexchange.com/questions/26022/generic-calculator-and-gene
 	<Nullable>enable</Nullable>
 	<ImplicitUsings>enable</ImplicitUsings>
 	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-	<EnablePreviewFeatures>true</EnablePreviewFeatures>
-  	<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
   </PropertyGroup>
 
   <!-- Creates local nuget packages if in release mode and environment variable LocalNuGetPackagesFolder is configured -->
