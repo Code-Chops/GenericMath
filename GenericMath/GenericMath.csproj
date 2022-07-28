@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	<VersionPrefix>1.4.5</VersionPrefix>
-	<PackageReleaseNotes>Made Number partial.</PackageReleaseNotes>
+	<VersionPrefix>1.4.6</VersionPrefix>
+	<PackageReleaseNotes>Only release local package in release mode.</PackageReleaseNotes>
 	<TargetFramework>net6.0</TargetFramework>
 	<LangVersion>10</LangVersion>
   </PropertyGroup>
@@ -38,12 +38,8 @@ https://codereview.stackexchange.com/questions/26022/generic-calculator-and-gene
   	<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
   </PropertyGroup>
 
-  <!-- Removes local nuget packages, so the package will be replaced when it exists -->
-  <Target Name="RemoveNugetPackage" AfterTargets="Pack" Condition="'$(LocalNuGetPackagesFolder)' != null">
-  	<Exec Command="rmdir $(LocalNuGetPackagesFolder)\$(PackageId)\$(PackageVersion)\ /s /q" />
-  </Target>
-  <!-- Creates local nuget packages if environment variable LocalNuGetPackagesFolder is configured -->
-  <Target Name="AddNugetPackage" AfterTargets="Pack" Condition="'$(LocalNuGetPackagesFolder)' != null">
+  <!-- Creates local nuget packages if in release mode and environment variable LocalNuGetPackagesFolder is configured -->
+  <Target Name="AddNugetPackage" AfterTargets="Pack" Condition="'$(Configuration)' == 'Release' AND '$(LocalNuGetPackagesFolder)' != null">
   	<Exec Command="$(LocalNuGetPackagesFolder)\nuget.exe add $(OutputPath)..\$(PackageId).$(PackageVersion).nupkg -source $(LocalNuGetPackagesFolder)" />
   </Target>
 	
