@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	<VersionPrefix>1.4.7</VersionPrefix>
-	<PackageReleaseNotes>Added IntegralType.</PackageReleaseNotes>
+	<VersionPrefix>1.4.8</VersionPrefix>
+	<PackageReleaseNotes>Change IntegralType getter to GetIntegralType().</PackageReleaseNotes>
 	<TargetFramework>net6.0</TargetFramework>
 	<LangVersion>10</LangVersion>
   </PropertyGroup>
