@@ -1,6 +1,8 @@
-﻿namespace CodeChops.GenericMath;
+﻿using CodeChops.DomainDrivenDesign.DomainModeling;
 
-public interface INumber
+namespace CodeChops.GenericMath;
+
+public interface INumber : IValueObject
 {
 	Type GetIntegralType();
 }

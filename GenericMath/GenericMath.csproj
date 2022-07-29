@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	<VersionPrefix>1.4.9</VersionPrefix>
-	<PackageReleaseNotes>Cleaned up project file.</PackageReleaseNotes>
+	<VersionPrefix>1.5.0</VersionPrefix>
+	<PackageReleaseNotes>Added DomainModeling packages and NumberId.</PackageReleaseNotes>
 	<TargetFramework>net6.0</TargetFramework>
 	<LangVersion>10</LangVersion>
   </PropertyGroup>
@@ -34,6 +34,7 @@ https://codereview.stackexchange.com/questions/26022/generic-calculator-and-gene
 	<Nullable>enable</Nullable>
 	<ImplicitUsings>enable</ImplicitUsings>
 	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <EnablePreviewFeatures>true</EnablePreviewFeatures>
   </PropertyGroup>
 
   <!-- Creates local nuget packages if in release mode and environment variable LocalNuGetPackagesFolder is configured -->
@@ -47,6 +48,7 @@ https://codereview.stackexchange.com/questions/26022/generic-calculator-and-gene
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="CodeChops.DomainDrivenDesign.DomainModeling" Version="0.2.0" />
     <PackageReference Include="System.Text.Json" Version="6.0.5" />
   </ItemGroup>
 
