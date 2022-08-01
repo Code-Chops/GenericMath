@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	<VersionPrefix>1.5.1</VersionPrefix>
+	<VersionPrefix>1.5.2</VersionPrefix>
 	<PackageReleaseNotes>Updated DomainModeling packages.</PackageReleaseNotes>
 	<TargetFramework>net6.0</TargetFramework>
 	<LangVersion>10</LangVersion>
@@ -48,7 +48,7 @@ https://codereview.stackexchange.com/questions/26022/generic-calculator-and-gene
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="CodeChops.DomainDrivenDesign.DomainModeling" Version="0.2.2" />
+    <PackageReference Include="CodeChops.DomainDrivenDesign.DomainModeling" Version="0.5.0" />
     <PackageReference Include="System.Text.Json" Version="6.0.5" />
   </ItemGroup>
 
