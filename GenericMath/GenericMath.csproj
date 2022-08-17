@@ -11,8 +11,8 @@
     </PropertyGroup>
 
     <PropertyGroup Label="Package">
-        <Version>1.5.6</Version>
-        <PackageReleaseNotes>Cleanup.</PackageReleaseNotes>
+        <Version>1.5.7</Version>
+        <PackageReleaseNotes>Cleanup 2.</PackageReleaseNotes>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>CodeChops.GenericMath</Title>
         <Description>

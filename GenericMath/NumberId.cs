@@ -4,16 +4,14 @@
 namespace CodeChops.DomainDrivenDesign.DomainModeling.Identities;
 
 /// <summary>
-/// Uses generic number with <typeparamref name="TNumber"/> as the type of the ID.
+/// Uses a generic number as ID. With <typeparamref name="TPrimitive"/> as the primitive type of the ID.
 /// </summary>
-/// <typeparam name="TSelf"></typeparam>
-/// <typeparam name="TNumber"></typeparam>
-public abstract record NumberId<TSelf, TNumber> : Id<TSelf, Number<TNumber>>
-	where TSelf : NumberId<TSelf, TNumber>
-	where TNumber : struct, IComparable<TNumber>, IEquatable<TNumber>, IConvertible
+public abstract record NumberId<TSelf, TPrimitive> : Id<TSelf, Number<TPrimitive>>
+	where TSelf : NumberId<TSelf, TPrimitive>
+	where TPrimitive : struct, IComparable<TPrimitive>, IEquatable<TPrimitive>, IConvertible
 {
-	protected NumberId(TNumber number)
-		: base(new Number<TNumber>(number))
+	protected NumberId(TPrimitive number)
+		: base(new Number<TPrimitive>(number))
 	{
 	}
 }

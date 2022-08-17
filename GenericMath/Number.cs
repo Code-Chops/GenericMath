@@ -1,17 +1,15 @@
-﻿using CodeChops.DomainDrivenDesign.DomainModeling.Factories;
-
-namespace CodeChops.GenericMath;
+﻿namespace CodeChops.GenericMath;
 
 /// <summary>
 /// From: https://codereview.stackexchange.com/questions/26022/generic-calculator-and-generic-number
 /// </summary>
 /// <typeparam name="T">Integral type</typeparam>
-public readonly record struct Number<T>(T Value) : INumber, IComparable<Number<T>>, IHasEmptyInstance<Number<T>>
+public readonly record struct Number<T>(T Value) : INumber, IComparable<Number<T>>
 	where T : struct, IComparable<T>, IEquatable<T>, IConvertible
 {
 	public override string? ToString() => $"{this.Value} ({typeof(T).Name})";
 	
-	public static Number<T> Empty { get; } = new();
+	public static Number<T> Zero { get; } = new();
 	
 	public Type GetIntegralType() => typeof(T);
 
@@ -65,11 +63,22 @@ public readonly record struct Number<T>(T Value) : INumber, IComparable<Number<T
 
 	public static implicit operator T(Number<T> value) 
 		=> value.Value;
-
-	public static Number<T> Create<TSourceNumber>(TSourceNumber number)
+	
+	/// <summary>
+	/// Cast this Number of <typeparamref name="T"/> to Number of <typeparamref name="TTarget"/>.
+	/// </summary>
+	public Number<TTarget> Cast<TTarget>()
+		where TTarget : struct, IComparable<TTarget>, IEquatable<TTarget>, IConvertible
 	{
-		if (number is null) throw new ArgumentNullException(nameof(number));
-
-		return new((T)Convert.ChangeType(number, typeof(T)));
+		return new(CastToPrimitive<TTarget>());
+	}
+	
+	/// <summary>
+	/// Cast the primitive of this Number of <typeparamref name="T"/> to primitive of type <typeparamref name="TTarget"/>.
+	/// </summary>
+	public TTarget CastToPrimitive<TTarget>()
+		where TTarget : struct, IComparable<TTarget>, IEquatable<TTarget>, IConvertible
+	{
+		return (TTarget)Convert.ChangeType(this.Value, typeof(T));
 	}
 }
