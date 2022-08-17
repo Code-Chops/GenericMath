@@ -5,19 +5,19 @@
 /// If a type does not support an operation, an exception is throw when using this operation, not during construction of this class.
 /// From: https://codereview.stackexchange.com/questions/26022/generic-calculator-and-generic-number
 /// </summary>
-public static class Calculator<T>
+internal static class Calculator<T>
 {
 	static Calculator()
 	{
-		Add			= CreateDelegate<T>(Expression.AddChecked, "Addition", isChecked: true);
-		Subtract	= CreateDelegate<T>(Expression.SubtractChecked, "Substraction", isChecked: true);
-		Multiply	= CreateDelegate<T>(Expression.MultiplyChecked, "Multiply", isChecked: true);
-		Divide		= CreateDelegate<T>(Expression.Divide, "Divide", isChecked: true);
-		Modulo		= CreateDelegate<T>(Expression.Modulo, "Modulus", isChecked: true);
-		Negate		= CreateDelegate(Expression.NegateChecked, "Negate", isChecked: true);
-		Plus		= CreateDelegate(Expression.UnaryPlus, "Plus", isChecked: true);
-		Increment	= CreateDelegate(Expression.Increment, "Increment", isChecked: true);
-		Decrement	= CreateDelegate(Expression.Decrement, "Decrement", isChecked: true);
+		Add			= CreateDelegate<T>(Expression.AddChecked,		nameof(Add),		isChecked: true);
+		Subtract	= CreateDelegate<T>(Expression.SubtractChecked, nameof(Subtract),	isChecked: true);
+		Multiply	= CreateDelegate<T>(Expression.MultiplyChecked, nameof(Multiply),	isChecked: true);
+		Divide		= CreateDelegate<T>(Expression.Divide, 			nameof(Divide),		isChecked: true);
+		Modulo		= CreateDelegate<T>(Expression.Modulo, 			nameof(Modulo),		isChecked: true);
+		Negate		= CreateDelegate(Expression.NegateChecked,		nameof(Negate),		isChecked: true);
+		Plus		= CreateDelegate(Expression.UnaryPlus, 			nameof(Plus),		isChecked: true);
+		Increment	= CreateDelegate(Expression.Increment, 			nameof(Increment), 	isChecked: true);
+		Decrement	= CreateDelegate(Expression.Decrement, 			nameof(Decrement), 	isChecked: true);
 	}
 
 	/// <summary>

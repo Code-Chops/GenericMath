@@ -2,17 +2,17 @@ namespace CodeChops.GenericMath;
 
 public static class NumberExtensions
 {
-	public static Number<TNumber> Cast<TSourceNumber, TNumber>(this Number<TSourceNumber> number)
-		where TNumber : struct, IComparable<TNumber>, IEquatable<TNumber>, IConvertible
-		where TSourceNumber : struct, IComparable<TSourceNumber>, IEquatable<TSourceNumber>, IConvertible
+	public static Number<TTarget> Cast<TSource, TTarget>(this Number<TSource> number)
+		where TTarget : struct, IComparable<TTarget>, IEquatable<TTarget>, IConvertible
+		where TSource : struct, IComparable<TSource>, IEquatable<TSource>, IConvertible
 	{
-		return new((TNumber)Convert.ChangeType((TSourceNumber)number, typeof(TNumber)));
+		return new((TTarget)Convert.ChangeType((TSource)number, typeof(TTarget)));
 	}
 	
-	public static TNumber CastToPrimitive<TSourceNumber, TNumber>(this Number<TSourceNumber> number)
-		where TNumber : struct, IComparable<TNumber>, IEquatable<TNumber>, IConvertible
-		where TSourceNumber : struct, IComparable<TSourceNumber>, IEquatable<TSourceNumber>, IConvertible
+	public static TTarget CastToPrimitive<TSource, TTarget>(this Number<TSource> number)
+		where TTarget : struct, IComparable<TTarget>, IEquatable<TTarget>, IConvertible
+		where TSource : struct, IComparable<TSource>, IEquatable<TSource>, IConvertible
 	{
-		return (TNumber)Convert.ChangeType((TSourceNumber)number, typeof(TNumber));
+		return (TTarget)Convert.ChangeType((TSource)number, typeof(TTarget));
 	}
 }
