@@ -11,8 +11,8 @@
     </PropertyGroup>
 
     <PropertyGroup Label="Package">
-        <VersionPrefix>1.5.4</VersionPrefix>
-        <PackageReleaseNotes>Cleanup project files.</PackageReleaseNotes>
+        <Version>1.5.5</Version>
+        <PackageReleaseNotes>Added cast to primitive.</PackageReleaseNotes>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>CodeChops.GenericMath</Title>
         <Description>
@@ -38,22 +38,22 @@
 
     <!-- Creates local nuget packages if in release mode and environment variable LocalNuGetPackagesFolder is configured -->
     <Target Name="AddNugetPackage" AfterTargets="Pack" Condition="'$(Configuration)' == 'Release' AND '$(LocalNuGetPackagesFolder)' != null">
-        <Exec Command="$(LocalNuGetPackagesFolder)\nuget.exe add $(OutputPath)..\$(PackageId).$(PackageVersion).nupkg -source $(LocalNuGetPackagesFolder)"/>
+        <Exec Command="$(LocalNuGetPackagesFolder)\nuget.exe add $(OutputPath)..\$(PackageId).$(PackageVersion).nupkg -source $(LocalNuGetPackagesFolder)" />
     </Target>
 
     <ItemGroup Label="PackageAssets">
-        <None Include="Properties\LICENSE" Pack="true" PackagePath=""/>
-        <None Include="Properties\icon.png" Pack="true" Visible="true" PackagePath=""/>
+        <None Include="Properties\LICENSE" Pack="true" PackagePath="" />
+        <None Include="Properties\icon.png" Pack="true" Visible="true" PackagePath="" />
     </ItemGroup>
 
     <ItemGroup Label="InternalsVisibleTo">
-        <InternalsVisibleTo Include="$(AssemblyName).UnitTests"/>
-        <InternalsVisibleTo Include="$(AssemblyName).IntegrationTests"/>
+        <InternalsVisibleTo Include="$(AssemblyName).UnitTests" />
+        <InternalsVisibleTo Include="$(AssemblyName).IntegrationTests" />
     </ItemGroup>
 
     <ItemGroup Label="PackageReferences">
-        <PackageReference Include="CodeChops.DomainDrivenDesign.DomainModeling" Version="0.8.9"/>
-        <PackageReference Include="System.Text.Json" Version="6.0.5"/>
+        <PackageReference Include="CodeChops.DomainDrivenDesign.DomainModeling" Version="0.8.9" />
+        <PackageReference Include="System.Text.Json" Version="6.0.5" />
     </ItemGroup>
 
 </Project>	

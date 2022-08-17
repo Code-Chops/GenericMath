@@ -4,7 +4,7 @@
 /// From: https://codereview.stackexchange.com/questions/26022/generic-calculator-and-generic-number
 /// </summary>
 /// <typeparam name="T">Integral type</typeparam>
-public readonly partial record struct Number<T>(T Value) : INumber, IComparable<Number<T>>
+public readonly record struct Number<T>(T Value) : INumber, IComparable<Number<T>>
 	where T : struct, IComparable<T>, IEquatable<T>, IConvertible
 {
 	public static Number<T> Empty { get; } = new();
@@ -103,15 +103,5 @@ public readonly partial record struct Number<T>(T Value) : INumber, IComparable<
 	public int CompareTo(Number<T> other)
 	{
 		return this.Value.CompareTo(other.Value);
-	}
-}
-
-public static class NumberExtensions
-{
-	public static Number<TNumber> Cast<TSourceNumber, TNumber>(this Number<TSourceNumber> number)
-		where TNumber : struct, IComparable<TNumber>, IEquatable<TNumber>, IConvertible
-		where TSourceNumber : struct, IComparable<TSourceNumber>, IEquatable<TSourceNumber>, IConvertible
-	{
-		return new((TNumber)Convert.ChangeType((TSourceNumber)number, typeof(TNumber)));
 	}
 }
