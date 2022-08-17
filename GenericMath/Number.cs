@@ -7,7 +7,7 @@
 public readonly record struct Number<T>(T Value) : INumber, IComparable<Number<T>>
 	where T : struct, IComparable<T>, IEquatable<T>, IConvertible
 {
-	public override string? ToString() => $"{this.Value} ({typeof(T).Name})";
+	public override string ToString() => $"{this.Value} ({typeof(T).Name})";
 	
 	public static Number<T> Zero { get; } = new();
 	
@@ -53,12 +53,12 @@ public readonly record struct Number<T>(T Value) : INumber, IComparable<Number<T
 		=> new(Calculator<T>.Plus(a.Value));
 
 	public static Number<T> operator ++(Number<T> a) 
-		=> new Number<T>(Calculator<T>.Increment(a.Value));
+		=> new(Calculator<T>.Increment(a.Value));
 
 	public static Number<T> operator --(Number<T> a) 
 		=> new(Calculator<T>.Decrement(a.Value));
 
-	public static implicit operator Number<T>(T value) 
+	public static explicit operator Number<T>(T value) 
 		=> new(value);
 
 	public static implicit operator T(Number<T> value) 
@@ -70,7 +70,7 @@ public readonly record struct Number<T>(T Value) : INumber, IComparable<Number<T
 	public Number<TTarget> Cast<TTarget>()
 		where TTarget : struct, IComparable<TTarget>, IEquatable<TTarget>, IConvertible
 	{
-		return new(CastToPrimitive<TTarget>());
+		return new(this.CastToPrimitive<TTarget>());
 	}
 	
 	/// <summary>
@@ -79,6 +79,6 @@ public readonly record struct Number<T>(T Value) : INumber, IComparable<Number<T
 	public TTarget CastToPrimitive<TTarget>()
 		where TTarget : struct, IComparable<TTarget>, IEquatable<TTarget>, IConvertible
 	{
-		return (TTarget)Convert.ChangeType(this.Value, typeof(T));
+		return (TTarget)Convert.ChangeType(this.Value, typeof(TTarget));
 	}
 }
