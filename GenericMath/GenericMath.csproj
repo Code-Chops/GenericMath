@@ -11,8 +11,8 @@
     </PropertyGroup>
 
     <PropertyGroup Label="Package">
-        <Version>1.6.0</Version>
-        <PackageReleaseNotes>Cast fix.</PackageReleaseNotes>
+        <Version>1.6.1</Version>
+        <PackageReleaseNotes>Renamed Cast to Convert.</PackageReleaseNotes>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>CodeChops.GenericMath</Title>
         <Description>

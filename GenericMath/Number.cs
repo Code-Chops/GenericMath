@@ -65,20 +65,20 @@ public readonly record struct Number<T>(T Value) : INumber, IComparable<Number<T
 		=> value.Value;
 	
 	/// <summary>
-	/// Cast this Number of <typeparamref name="T"/> to Number of <typeparamref name="TTarget"/>.
+	/// Converts this Number of <typeparamref name="T"/> to Number of <typeparamref name="TTarget"/>.
 	/// </summary>
-	public Number<TTarget> Cast<TTarget>()
+	public Number<TTarget> Convert<TTarget>()
 		where TTarget : struct, IComparable<TTarget>, IEquatable<TTarget>, IConvertible
 	{
-		return new(this.CastToPrimitive<TTarget>());
+		return new(this.ConvertToPrimitive<TTarget>());
 	}
 	
 	/// <summary>
-	/// Cast the primitive of this Number of <typeparamref name="T"/> to primitive of type <typeparamref name="TTarget"/>.
+	/// Converts the primitive of this Number of <typeparamref name="T"/> to primitive of type <typeparamref name="TTarget"/>.
 	/// </summary>
-	public TTarget CastToPrimitive<TTarget>()
+	public TTarget ConvertToPrimitive<TTarget>()
 		where TTarget : struct, IComparable<TTarget>, IEquatable<TTarget>, IConvertible
 	{
-		return (TTarget)Convert.ChangeType(this.Value, typeof(TTarget));
+		return (TTarget)System.Convert.ChangeType(this.Value, typeof(TTarget));
 	}
 }
