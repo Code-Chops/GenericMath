@@ -5,6 +5,7 @@
 /// From: https://codereview.stackexchange.com/questions/26022/generic-calculator-and-generic-number
 /// </summary>
 public class Calculator<T>
+	where T : struct, IComparable<T>, IEquatable<T>, IConvertible
 {
 	static Calculator()
 	{

@@ -11,8 +11,8 @@
     </PropertyGroup>
 
     <PropertyGroup Label="Package">
-        <Version>2.0.4</Version>
-        <PackageReleaseNotes>Made calculator non-static so it can be implemented in other projects.</PackageReleaseNotes>
+        <Version>2.0.5</Version>
+        <PackageReleaseNotes>Added generic constraints to Calculator.</PackageReleaseNotes>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>CodeChops.GenericMath</Title>
         <Description>
