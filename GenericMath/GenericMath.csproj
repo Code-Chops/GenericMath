@@ -11,8 +11,8 @@
     </PropertyGroup>
 
     <PropertyGroup Label="Package">
-        <Version>2.0.8</Version>
-        <PackageReleaseNotes>Added ConvertPrimitive to calculator.</PackageReleaseNotes>
+        <Version>2.0.9</Version>
+        <PackageReleaseNotes>Made ConvertPrimitive in calculator static.</PackageReleaseNotes>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>CodeChops.GenericMath</Title>
         <Description>

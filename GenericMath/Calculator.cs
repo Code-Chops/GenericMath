@@ -195,7 +195,7 @@ public class Calculator<TNumber>
 	/// Converts a primitive of type <typeparamref name="TSource"/> to type <typeparamref name="TTarget"/>.
 	/// <para><b>Is slow and performs boxing!</b></para>
 	/// </summary>
-	public TTarget ConvertPrimitive<TSource, TTarget>(TSource value)
+	public static TTarget ConvertPrimitive<TSource, TTarget>(TSource value)
 		where TSource : struct, IComparable<TSource>, IEquatable<TSource>, IConvertible
 		where TTarget : struct, IComparable<TTarget>, IEquatable<TTarget>, IConvertible
 	{
