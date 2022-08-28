@@ -11,8 +11,8 @@
     </PropertyGroup>
 
     <PropertyGroup Label="Package">
-        <Version>2.0.5</Version>
-        <PackageReleaseNotes>Added generic constraints to Calculator.</PackageReleaseNotes>
+        <Version>2.0.6</Version>
+        <PackageReleaseNotes>Added convert changetype.</PackageReleaseNotes>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>CodeChops.GenericMath</Title>
         <Description>

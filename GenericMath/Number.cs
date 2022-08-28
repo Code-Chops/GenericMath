@@ -82,4 +82,13 @@ public readonly record struct Number<T>(T Value) : INumber, IComparable<Number<T
 
 	public static implicit operator T(Number<T> value) 
 		=> value.Value;
+	
+	/// <summary>
+	/// Converts the primitive of this Number of <typeparamref name="T"/> to primitive of type <typeparamref name="TTarget"/>.
+	/// </summary>
+	public TTarget ConvertToPrimitive<TTarget>()
+		where TTarget : struct, IComparable<TTarget>, IEquatable<TTarget>, IConvertible
+	{
+		return (TTarget)Convert.ChangeType(this.Value, typeof(TTarget));
+	}
 }
