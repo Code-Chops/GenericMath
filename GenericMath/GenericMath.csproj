@@ -11,8 +11,8 @@
     </PropertyGroup>
 
     <PropertyGroup Label="Package">
-        <Version>2.0.1</Version>
-        <PackageReleaseNotes>Made calculator public.</PackageReleaseNotes>
+        <Version>2.0.2</Version>
+        <PackageReleaseNotes>Made calculator partial and fixed comments.</PackageReleaseNotes>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>CodeChops.GenericMath</Title>
         <Description>

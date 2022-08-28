@@ -4,7 +4,7 @@
 /// Class to allow operations (like Add, Multiply, etc.) for generic types. This type should allow these operations themselves.
 /// From: https://codereview.stackexchange.com/questions/26022/generic-calculator-and-generic-number
 /// </summary>
-public static class Calculator<T>
+public static partial class Calculator<T>
 {
 	static Calculator()
 	{
@@ -74,14 +74,14 @@ public static class Calculator<T>
 	public static Func<T, T> Negate { get; }
 
 	/// <summary>
-	/// Gets the negative value of T.
+	/// Gets the plus value of T.
 	/// Supported by: All numeric values.
 	/// </summary>
 	/// <exception cref="InvalidOperationException"/>
 	public static Func<T, T> Plus { get; }
 
 	/// <summary>
-	/// Gets the negative value of T.
+	/// Gets the incremental value of T.
 	/// Supported by: All numeric values.
 	/// </summary>
 	/// <exception cref="OverflowException"/>
@@ -89,7 +89,7 @@ public static class Calculator<T>
 	public static Func<T, T> Increment { get; }
 
 	/// <summary>
-	/// Gets the negative value of T.
+	/// Gets the decremental value of T.
 	/// Supported by: All numeric values.
 	/// </summary>
 	/// <exception cref="OverflowException"/>
