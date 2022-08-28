@@ -4,26 +4,26 @@
 /// Class to allow operations (like Add, Multiply, etc.) for generic types. This type should allow these operations themselves.
 /// From: https://codereview.stackexchange.com/questions/26022/generic-calculator-and-generic-number
 /// </summary>
-public class Calculator<T>
-	where T : struct, IComparable<T>, IEquatable<T>, IConvertible
+public class Calculator<TNumber>
+	where TNumber : struct, IComparable<TNumber>, IEquatable<TNumber>, IConvertible
 {
 	static Calculator()
 	{
-		Add				= CreateDelegate<T>(Expression.AddChecked,		nameof(Add),			isChecked: true);
-		Subtract		= CreateDelegate<T>(Expression.SubtractChecked, nameof(Subtract),		isChecked: true);
-		Multiply		= CreateDelegate<T>(Expression.MultiplyChecked, nameof(Multiply),		isChecked: true);
-		Divide			= CreateDelegate<T>(Expression.Divide, 			nameof(Divide),			isChecked: true);
-		Modulo			= CreateDelegate<T>(Expression.Modulo, 			nameof(Modulo),			isChecked: true);
-		Negate			= CreateDelegate(Expression.NegateChecked,		nameof(Negate),			isChecked: true);
-		Plus			= CreateDelegate(Expression.UnaryPlus, 			nameof(Plus),			isChecked: true);
-		Increment		= CreateDelegate(Expression.Increment, 			nameof(Increment), 		isChecked: true);
-		Decrement		= CreateDelegate(Expression.Decrement, 			nameof(Decrement), 		isChecked: true);
-		LeftShift		= CreateDelegate<int>(Expression.LeftShift,		nameof(LeftShift),		isChecked: false);
-		RightShift		= CreateDelegate<int>(Expression.RightShift,	nameof(RightShift), 	isChecked: false);
-		OnesComplement	= CreateDelegate(Expression.OnesComplement,		nameof(OnesComplement),	isChecked: false);
-		And				= CreateDelegate<T>(Expression.And,				nameof(And),			isChecked: false);
-		Or				= CreateDelegate<T>(Expression.Or,				nameof(Or),				isChecked: false);
-		Xor				= CreateDelegate<T>(Expression.ExclusiveOr,		nameof(Xor),			isChecked: false);
+		Add				= CreateDelegate<TNumber>(Expression.AddChecked,		nameof(Add),			isChecked: true);
+		Subtract		= CreateDelegate<TNumber>(Expression.SubtractChecked,	nameof(Subtract),		isChecked: true);
+		Multiply		= CreateDelegate<TNumber>(Expression.MultiplyChecked,	nameof(Multiply),		isChecked: true);
+		Divide			= CreateDelegate<TNumber>(Expression.Divide, 			nameof(Divide),			isChecked: true);
+		Modulo			= CreateDelegate<TNumber>(Expression.Modulo, 			nameof(Modulo),			isChecked: true);
+		Negate			= CreateDelegate(Expression.NegateChecked,				nameof(Negate),			isChecked: true);
+		Plus			= CreateDelegate(Expression.UnaryPlus, 					nameof(Plus),			isChecked: true);
+		Increment		= CreateDelegate(Expression.Increment, 					nameof(Increment), 		isChecked: true);
+		Decrement		= CreateDelegate(Expression.Decrement, 					nameof(Decrement), 		isChecked: true);
+		LeftShift		= CreateDelegate<int>(Expression.LeftShift,				nameof(LeftShift),		isChecked: false);
+		RightShift		= CreateDelegate<int>(Expression.RightShift,			nameof(RightShift), 	isChecked: false);
+		OnesComplement	= CreateDelegate(Expression.OnesComplement,				nameof(OnesComplement),	isChecked: false);
+		And				= CreateDelegate<TNumber>(Expression.And,				nameof(And),			isChecked: false);
+		Or				= CreateDelegate<TNumber>(Expression.Or,				nameof(Or),				isChecked: false);
+		Xor				= CreateDelegate<TNumber>(Expression.ExclusiveOr,		nameof(Xor),			isChecked: false);
 	}
 
 	/// <summary>
@@ -32,7 +32,7 @@ public class Calculator<T>
 	/// </summary>
 	/// <exception cref="OverflowException"/>
 	/// <exception cref="InvalidOperationException"/>
-	public static Func<T, T, T> Add { get; }
+	public static Func<TNumber, TNumber, TNumber> Add { get; }
 
 	/// <summary>
 	/// Subtracts two values of the same type.
@@ -40,7 +40,7 @@ public class Calculator<T>
 	/// </summary>
 	/// <exception cref="OverflowException"/>
 	/// <exception cref="InvalidOperationException"/>
-	public static Func<T, T, T> Subtract { get; }
+	public static Func<TNumber, TNumber, TNumber> Subtract { get; }
 
 	/// <summary>
 	/// Multiplies two values of the same type.
@@ -48,7 +48,7 @@ public class Calculator<T>
 	/// </summary>
 	/// <exception cref="OverflowException"/>
 	/// <exception cref="InvalidOperationException"/>
-	public static Func<T, T, T> Multiply { get; }
+	public static Func<TNumber, TNumber, TNumber> Multiply { get; }
 
 	/// <summary>
 	/// Divides two values of the same type.
@@ -56,7 +56,7 @@ public class Calculator<T>
 	/// </summary>
 	/// <exception cref="OverflowException"/>
 	/// <exception cref="InvalidOperationException"/>
-	public static Func<T, T, T> Divide { get; }
+	public static Func<TNumber, TNumber, TNumber> Divide { get; }
 
 	/// <summary>
 	/// Divides two values of the same type and returns the remainder.
@@ -64,7 +64,7 @@ public class Calculator<T>
 	/// </summary>
 	/// <exception cref="OverflowException"/>
 	/// <exception cref="InvalidOperationException"/>
-	public static Func<T, T, T> Modulo { get; }
+	public static Func<TNumber, TNumber, TNumber> Modulo { get; }
 
 	/// <summary>
 	/// Gets the negative value of T.
@@ -72,14 +72,14 @@ public class Calculator<T>
 	/// </summary>
 	/// <exception cref="OverflowException"/>
 	/// <exception cref="InvalidOperationException"/>
-	public static Func<T, T> Negate { get; }
+	public static Func<TNumber, TNumber> Negate { get; }
 
 	/// <summary>
 	/// Gets the plus value of T.
 	/// Supported by: All numeric values.
 	/// </summary>
 	/// <exception cref="InvalidOperationException"/>
-	public static Func<T, T> Plus { get; }
+	public static Func<TNumber, TNumber> Plus { get; }
 
 	/// <summary>
 	/// Gets the incremental value of T.
@@ -87,7 +87,7 @@ public class Calculator<T>
 	/// </summary>
 	/// <exception cref="OverflowException"/>
 	/// <exception cref="InvalidOperationException"/>
-	public static Func<T, T> Increment { get; }
+	public static Func<TNumber, TNumber> Increment { get; }
 
 	/// <summary>
 	/// Gets the decremental value of T.
@@ -95,92 +95,92 @@ public class Calculator<T>
 	/// </summary>
 	/// <exception cref="OverflowException"/>
 	/// <exception cref="InvalidOperationException"/>
-	public static Func<T, T> Decrement { get; }
+	public static Func<TNumber, TNumber> Decrement { get; }
 
 	/// <summary>
 	/// Shifts the number to the left.
 	/// Supported by: All integral types.
 	/// </summary>
 	/// <exception cref="InvalidOperationException"/>
-	public static readonly Func<T, int, T> LeftShift;
+	public static readonly Func<TNumber, int, TNumber> LeftShift;
 
 	/// <summary>
 	/// Shifts the number to the right.
 	/// Supported by: All integral types.
 	/// </summary>
 	/// <exception cref="InvalidOperationException"/>
-	public static readonly Func<T, int, T> RightShift;
+	public static readonly Func<TNumber, int, TNumber> RightShift;
 
 	/// <summary>
 	/// Inverts all bits inside the value.
 	/// Supported by: All integral types.
 	/// </summary>
 	/// <exception cref="InvalidOperationException"/>
-	public static readonly Func<T, T> OnesComplement;
+	public static readonly Func<TNumber, TNumber> OnesComplement;
 
 	/// <summary>
 	/// Performs a bitwise OR.
 	/// Supported by: All integral types.
 	/// </summary>
 	/// <exception cref="InvalidOperationException"/>
-	public static readonly Func<T, T, T> Or;
+	public static readonly Func<TNumber, TNumber, TNumber> Or;
 
 	/// <summary>
 	/// Performs a bitwise AND
 	/// Supported by: All integral types.
 	/// </summary>
 	/// <exception cref="InvalidOperationException"/>
-	public static readonly Func<T, T, T> And;
+	public static readonly Func<TNumber, TNumber, TNumber> And;
 
 	/// <summary>
 	/// Performs a bitwise Exclusive OR.
 	/// Supported by: All integral types.
 	/// </summary>
 	/// <exception cref="InvalidOperationException"/>
-	public static readonly Func<T, T, T> Xor;
+	public static readonly Func<TNumber, TNumber, TNumber> Xor;
 
-	private static Func<T, T2, T> CreateDelegate<T2>(Func<Expression, Expression, Expression> @operator, string operatorName, bool isChecked)
+	private static Func<TNumber, T2, TNumber> CreateDelegate<T2>(Func<Expression, Expression, Expression> @operator, string operatorName, bool isChecked)
 	{
 		try
 		{
-			var convertToTypeA = ConvertTo(typeof(T));
+			var convertToTypeA = ConvertTo(typeof(TNumber));
 			var convertToTypeB = ConvertTo(typeof(T2));
-			var parameterA = Expression.Parameter(typeof(T), "a");
+			var parameterA = Expression.Parameter(typeof(TNumber), "a");
 			var parameterB = Expression.Parameter(typeof(T2), "b");
 			var valueA = convertToTypeA != null ? Expression.Convert(parameterA, convertToTypeA) : (Expression)parameterA;
 			var valueB = convertToTypeB != null ? Expression.Convert(parameterB, convertToTypeB) : (Expression)parameterB;
 			var body = @operator(valueA, valueB);
 
 			if (convertToTypeA != null) 
-				body = isChecked ? Expression.ConvertChecked(body, typeof(T)) : Expression.Convert(body, typeof(T));
+				body = isChecked ? Expression.ConvertChecked(body, typeof(TNumber)) : Expression.Convert(body, typeof(TNumber));
 
-			return Expression.Lambda<Func<T, T2, T>>(body, parameterA, parameterB).Compile();
+			return Expression.Lambda<Func<TNumber, T2, TNumber>>(body, parameterA, parameterB).Compile();
 		}
 		catch
 		{
-			return (_, _) => throw new InvalidOperationException($"Operator {operatorName} is not supported by type {typeof(T).FullName}.");
+			return (_, _) => throw new InvalidOperationException($"Operator {operatorName} is not supported by type {typeof(TNumber).FullName}.");
 		}
 	}
 
-	private static Func<T, T> CreateDelegate(Func<Expression, Expression> @operator, string operatorName, bool isChecked)
+	private static Func<TNumber, TNumber> CreateDelegate(Func<Expression, Expression> @operator, string operatorName, bool isChecked)
 	{
 		try
 		{
-			var convertToType = ConvertTo(typeof(T));
-			var parameter = Expression.Parameter(typeof(T), "a");
+			var convertToType = ConvertTo(typeof(TNumber));
+			var parameter = Expression.Parameter(typeof(TNumber), "a");
 			var value = convertToType != null ? Expression.Convert(parameter, convertToType) : (Expression)parameter;
 			var body = @operator(value);
 
 			if (convertToType != null)
 			{
-				body = isChecked ? Expression.ConvertChecked(body, typeof(T)) : Expression.Convert(body, typeof(T));
+				body = isChecked ? Expression.ConvertChecked(body, typeof(TNumber)) : Expression.Convert(body, typeof(TNumber));
 			}
 
-			return Expression.Lambda<Func<T, T>>(body, parameter).Compile();
+			return Expression.Lambda<Func<TNumber, TNumber>>(body, parameter).Compile();
 		}
 		catch
 		{
-			return _ => throw new InvalidOperationException($"Operator {operatorName} is not supported by type {typeof(T).FullName}.");
+			return _ => throw new InvalidOperationException($"Operator {operatorName} is not supported by type {typeof(TNumber).FullName}.");
 		}
 	}
 
@@ -189,5 +189,16 @@ public class Calculator<T>
 		return Type.GetTypeCode(type) is TypeCode.Char or TypeCode.Byte or TypeCode.SByte or TypeCode.Int16 or TypeCode.UInt16
 			? typeof(int)
 			: null;
+	}
+	
+	/// <summary>
+	/// Converts a primitive of type <typeparamref name="TSource"/> to type <typeparamref name="TTarget"/>.
+	/// <para><b>Is slow and performs boxing!</b></para>
+	/// </summary>
+	public TTarget ConvertPrimitive<TSource, TTarget>(TSource value)
+		where TSource : struct, IComparable<TSource>, IEquatable<TSource>, IConvertible
+		where TTarget : struct, IComparable<TTarget>, IEquatable<TTarget>, IConvertible
+	{
+		return (TTarget)Convert.ChangeType(value, typeof(TTarget));
 	}
 }

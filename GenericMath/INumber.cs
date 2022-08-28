@@ -1,6 +1,4 @@
-﻿using CodeChops.DomainDrivenDesign.DomainModeling;
-
-namespace CodeChops.GenericMath;
+﻿namespace CodeChops.GenericMath;
 
 public interface INumber : IValueObject
 {
