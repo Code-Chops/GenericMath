@@ -11,8 +11,8 @@
     </PropertyGroup>
 
     <PropertyGroup Label="Package">
-        <Version>2.0.3</Version>
-        <PackageReleaseNotes>Updated domain modeling package reference.</PackageReleaseNotes>
+        <Version>2.0.4</Version>
+        <PackageReleaseNotes>Made calculator non-static so it can be implemented in other projects.</PackageReleaseNotes>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>CodeChops.GenericMath</Title>
         <Description>
