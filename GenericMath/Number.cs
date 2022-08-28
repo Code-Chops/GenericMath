@@ -1,4 +1,6 @@
-﻿namespace CodeChops.GenericMath;
+﻿using System.Globalization;
+
+namespace CodeChops.GenericMath;
 
 /// <summary>
 /// From: https://codereview.stackexchange.com/questions/26022/generic-calculator-and-generic-number
@@ -89,6 +91,6 @@ public readonly record struct Number<T>(T Value) : INumber, IComparable<Number<T
 	public TTarget ConvertToPrimitive<TTarget>()
 		where TTarget : struct, IComparable<TTarget>, IEquatable<TTarget>, IConvertible
 	{
-		return (TTarget)Convert.ChangeType(this.Value, typeof(TTarget));
+		return (TTarget)this.Value.ToType(typeof(TTarget), CultureInfo.InvariantCulture);
 	}
 }
