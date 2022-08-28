@@ -9,15 +9,21 @@ internal static class Calculator<T>
 {
 	static Calculator()
 	{
-		Add			= CreateDelegate<T>(Expression.AddChecked,		nameof(Add),		isChecked: true);
-		Subtract	= CreateDelegate<T>(Expression.SubtractChecked, nameof(Subtract),	isChecked: true);
-		Multiply	= CreateDelegate<T>(Expression.MultiplyChecked, nameof(Multiply),	isChecked: true);
-		Divide		= CreateDelegate<T>(Expression.Divide, 			nameof(Divide),		isChecked: true);
-		Modulo		= CreateDelegate<T>(Expression.Modulo, 			nameof(Modulo),		isChecked: true);
-		Negate		= CreateDelegate(Expression.NegateChecked,		nameof(Negate),		isChecked: true);
-		Plus		= CreateDelegate(Expression.UnaryPlus, 			nameof(Plus),		isChecked: true);
-		Increment	= CreateDelegate(Expression.Increment, 			nameof(Increment), 	isChecked: true);
-		Decrement	= CreateDelegate(Expression.Decrement, 			nameof(Decrement), 	isChecked: true);
+		Add				= CreateDelegate<T>(Expression.AddChecked,		nameof(Add),			isChecked: true);
+		Subtract		= CreateDelegate<T>(Expression.SubtractChecked, nameof(Subtract),		isChecked: true);
+		Multiply		= CreateDelegate<T>(Expression.MultiplyChecked, nameof(Multiply),		isChecked: true);
+		Divide			= CreateDelegate<T>(Expression.Divide, 			nameof(Divide),			isChecked: true);
+		Modulo			= CreateDelegate<T>(Expression.Modulo, 			nameof(Modulo),			isChecked: true);
+		Negate			= CreateDelegate(Expression.NegateChecked,		nameof(Negate),			isChecked: true);
+		Plus			= CreateDelegate(Expression.UnaryPlus, 			nameof(Plus),			isChecked: true);
+		Increment		= CreateDelegate(Expression.Increment, 			nameof(Increment), 		isChecked: true);
+		Decrement		= CreateDelegate(Expression.Decrement, 			nameof(Decrement), 		isChecked: true);
+		LeftShift		= CreateDelegate<int>(Expression.LeftShift,		nameof(LeftShift),		isChecked: false);
+		RightShift		= CreateDelegate<int>(Expression.RightShift,	nameof(RightShift), 	isChecked: false);
+		OnesComplement	= CreateDelegate(Expression.OnesComplement,		nameof(OnesComplement),	isChecked: false);
+		And				= CreateDelegate<T>(Expression.And,				nameof(And),			isChecked: false);
+		Or				= CreateDelegate<T>(Expression.Or,				nameof(Or),				isChecked: false);
+		Xor				= CreateDelegate<T>(Expression.ExclusiveOr,		nameof(Xor),			isChecked: false);
 	}
 
 	/// <summary>
@@ -90,6 +96,48 @@ internal static class Calculator<T>
 	/// <exception cref="OverflowException"/>
 	/// <exception cref="InvalidOperationException"/>
 	public static Func<T, T> Decrement { get; }
+
+	/// <summary>
+	/// Shifts the number to the left.
+	/// Supported by: All integral types.
+	/// </summary>
+	/// <exception cref="InvalidOperationException"/>
+	public static readonly Func<T, int, T> LeftShift;
+
+	/// <summary>
+	/// Shifts the number to the right.
+	/// Supported by: All integral types.
+	/// </summary>
+	/// <exception cref="InvalidOperationException"/>
+	public static readonly Func<T, int, T> RightShift;
+
+	/// <summary>
+	/// Inverts all bits inside the value.
+	/// Supported by: All integral types.
+	/// </summary>
+	/// <exception cref="InvalidOperationException"/>
+	public static readonly Func<T, T> OnesComplement;
+
+	/// <summary>
+	/// Performs a bitwise OR.
+	/// Supported by: All integral types.
+	/// </summary>
+	/// <exception cref="InvalidOperationException"/>
+	public static readonly Func<T, T, T> Or;
+
+	/// <summary>
+	/// Performs a bitwise AND
+	/// Supported by: All integral types.
+	/// </summary>
+	/// <exception cref="InvalidOperationException"/>
+	public static readonly Func<T, T, T> And;
+
+	/// <summary>
+	/// Performs a bitwise Exclusive OR.
+	/// Supported by: All integral types.
+	/// </summary>
+	/// <exception cref="InvalidOperationException"/>
+	public static readonly Func<T, T, T> Xor;
 
 	private static Func<T, T2, T> CreateDelegate<T2>(Func<Expression, Expression, Expression> @operator, string operatorName, bool isChecked)
 	{

@@ -58,27 +58,28 @@ public readonly record struct Number<T>(T Value) : INumber, IComparable<Number<T
 	public static Number<T> operator --(Number<T> a) 
 		=> new(Calculator<T>.Decrement(a.Value));
 
-	public static explicit operator Number<T>(T value) 
+	public static Number<T> operator <<(Number<T> a, int b) 
+		=> new(Calculator<T>.LeftShift(a.Value, b));
+
+	public static Number<T> operator >>(Number<T> a, int b) 
+		=> new(Calculator<T>.RightShift(a.Value, b));
+
+	public static Number<T> operator &(Number<T> a, Number<T> b) 
+		=> new(Calculator<T>.And(a.Value, b.Value));
+
+	public static Number<T> operator |(Number<T> a, Number<T> b) 
+		=> new(Calculator<T>.Or(a.Value, b.Value));
+
+	public static Number<T> operator ^(Number<T> a, Number<T> b) 
+		=> new(Calculator<T>.Xor(a.Value, b.Value));
+
+	public static Number<T> operator ~(Number<T> a)
+		=> new(Calculator<T>.OnesComplement(a.Value));
+
+
+	public static implicit operator Number<T>(T value) 
 		=> new(value);
 
 	public static implicit operator T(Number<T> value) 
 		=> value.Value;
-	
-	/// <summary>
-	/// Converts this Number of <typeparamref name="T"/> to Number of <typeparamref name="TTarget"/>.
-	/// </summary>
-	public Number<TTarget> Convert<TTarget>()
-		where TTarget : struct, IComparable<TTarget>, IEquatable<TTarget>, IConvertible
-	{
-		return new(this.ConvertToPrimitive<TTarget>());
-	}
-	
-	/// <summary>
-	/// Converts the primitive of this Number of <typeparamref name="T"/> to primitive of type <typeparamref name="TTarget"/>.
-	/// </summary>
-	public TTarget ConvertToPrimitive<TTarget>()
-		where TTarget : struct, IComparable<TTarget>, IEquatable<TTarget>, IConvertible
-	{
-		return (TTarget)System.Convert.ChangeType(this.Value, typeof(TTarget));
-	}
 }
