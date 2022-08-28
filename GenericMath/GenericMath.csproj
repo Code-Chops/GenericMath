@@ -11,8 +11,8 @@
     </PropertyGroup>
 
     <PropertyGroup Label="Package">
-        <Version>2.0.2</Version>
-        <PackageReleaseNotes>Made calculator partial and fixed comments.</PackageReleaseNotes>
+        <Version>2.0.3</Version>
+        <PackageReleaseNotes>Updated domain modeling package reference.</PackageReleaseNotes>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>CodeChops.GenericMath</Title>
         <Description>
@@ -52,7 +52,7 @@
     </ItemGroup>
 
     <ItemGroup Label="PackageReferences">
-        <PackageReference Include="CodeChops.DomainDrivenDesign.DomainModeling" Version="0.11.1" />
+        <PackageReference Include="CodeChops.DomainDrivenDesign.DomainModeling" Version="0.20.0" />
         <PackageReference Include="System.Text.Json" Version="6.0.5" />
     </ItemGroup>
 
