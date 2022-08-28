@@ -2,10 +2,9 @@
 
 /// <summary>
 /// Class to allow operations (like Add, Multiply, etc.) for generic types. This type should allow these operations themselves.
-/// If a type does not support an operation, an exception is throw when using this operation, not during construction of this class.
 /// From: https://codereview.stackexchange.com/questions/26022/generic-calculator-and-generic-number
 /// </summary>
-internal static class Calculator<T>
+public static class Calculator<T>
 {
 	static Calculator()
 	{
@@ -151,16 +150,14 @@ internal static class Calculator<T>
 			var valueB = convertToTypeB != null ? Expression.Convert(parameterB, convertToTypeB) : (Expression)parameterB;
 			var body = @operator(valueA, valueB);
 
-			if (convertToTypeA != null)
-			{
+			if (convertToTypeA != null) 
 				body = isChecked ? Expression.ConvertChecked(body, typeof(T)) : Expression.Convert(body, typeof(T));
-			}
 
 			return Expression.Lambda<Func<T, T2, T>>(body, parameterA, parameterB).Compile();
 		}
 		catch
 		{
-			return (_, _) => throw new InvalidOperationException("Operator " + operatorName + " is not supported by type " + typeof(T).FullName + ".");
+			return (_, _) => throw new InvalidOperationException($"Operator {operatorName} is not supported by type {typeof(T).FullName}.");
 		}
 	}
 
@@ -182,11 +179,11 @@ internal static class Calculator<T>
 		}
 		catch
 		{
-			return _ => throw new InvalidOperationException("Operator " + operatorName + " is not supported by type " + typeof(T).FullName + ".");
+			return _ => throw new InvalidOperationException($"Operator {operatorName} is not supported by type {typeof(T).FullName}.");
 		}
 	}
 
-	public static Type? ConvertTo(Type type)
+	private static Type? ConvertTo(Type type)
 	{
 		return Type.GetTypeCode(type) is TypeCode.Char or TypeCode.Byte or TypeCode.SByte or TypeCode.Int16 or TypeCode.UInt16
 			? typeof(int)
