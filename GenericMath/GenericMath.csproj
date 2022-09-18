@@ -11,8 +11,8 @@
     </PropertyGroup>
 
     <PropertyGroup Label="Package">
-        <Version>2.10.2</Version>
-        <PackageReleaseNotes>Updated packages.</PackageReleaseNotes>
+        <Version>2.10.3</Version>
+        <PackageReleaseNotes>Added number JSON serialization.</PackageReleaseNotes>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>CodeChops.GenericMath</Title>
         <Description>
@@ -52,7 +52,7 @@
     </ItemGroup>
 
     <ItemGroup Label="PackageReferences">
-        <PackageReference Include="CodeChops.DomainDrivenDesign.DomainModeling" Version="0.23.2" />
+        <PackageReference Include="CodeChops.DomainDrivenDesign.DomainModeling" Version="0.23.3" />
         <PackageReference Include="System.Text.Json" Version="6.0.6" />
     </ItemGroup>
 
