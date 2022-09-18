@@ -11,8 +11,8 @@
     </PropertyGroup>
 
     <PropertyGroup Label="Package">
-        <Version>2.10.1</Version>
-        <PackageReleaseNotes>Changed number to string by using suffix.</PackageReleaseNotes>
+        <Version>2.10.2</Version>
+        <PackageReleaseNotes>Updated packages.</PackageReleaseNotes>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>CodeChops.GenericMath</Title>
         <Description>
@@ -52,7 +52,7 @@
     </ItemGroup>
 
     <ItemGroup Label="PackageReferences">
-        <PackageReference Include="CodeChops.DomainDrivenDesign.DomainModeling" Version="0.22.0" />
+        <PackageReference Include="CodeChops.DomainDrivenDesign.DomainModeling" Version="0.23.2" />
         <PackageReference Include="System.Text.Json" Version="6.0.6" />
     </ItemGroup>
 
