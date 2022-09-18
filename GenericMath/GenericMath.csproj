@@ -11,8 +11,8 @@
     </PropertyGroup>
 
     <PropertyGroup Label="Package">
-        <Version>2.10.0</Version>
-        <PackageReleaseNotes>Updated package references.</PackageReleaseNotes>
+        <Version>2.10.1</Version>
+        <PackageReleaseNotes>Changed number to string by using suffix.</PackageReleaseNotes>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>CodeChops.GenericMath</Title>
         <Description>

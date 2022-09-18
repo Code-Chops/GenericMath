@@ -9,7 +9,7 @@ namespace CodeChops.GenericMath;
 public readonly record struct Number<T>(T Value) : INumber, IComparable<Number<T>>
 	where T : struct, IComparable<T>, IEquatable<T>, IConvertible
 {
-	public override string ToString() => $"{this.Value} ({typeof(T).Name})";
+	public override string ToString() => $"{this.Value}{this.GetIntegralSuffix()}";
 	
 	public static Number<T> Zero { get; } = new();
 	
@@ -84,6 +84,25 @@ public readonly record struct Number<T>(T Value) : INumber, IComparable<Number<T
 
 	public static implicit operator T(Number<T> value) 
 		=> value.Value;
+	
+	private string? GetIntegralSuffix()
+	{
+		return this.Value switch
+		{
+			sbyte	=> null,
+			byte	=> null,
+			short	=> null,
+			ushort	=> null,
+			int		=> null,
+			uint	=> "U",
+			long	=> "L",
+			ulong	=> "UL",
+			float	=> "F",
+			double	=> "D",
+			decimal => "M",
+			_		=> null,
+		};
+	}
 	
 	/// <summary>
 	/// Converts the primitive of this Number of <typeparamref name="T"/> to primitive of type <typeparamref name="TTarget"/>.
