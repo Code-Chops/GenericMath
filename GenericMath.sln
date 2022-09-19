@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		ReadMe.txt = ReadMe.txt
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericMath.UnitTests", "GenericMath.UnitTests\GenericMath.UnitTests.csproj", "{63841DB1-0891-4687-8D70-1C02B78134F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,10 @@ Global
 		{0254CBC5-1300-4911-A85C-33D90A244B76}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0254CBC5-1300-4911-A85C-33D90A244B76}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0254CBC5-1300-4911-A85C-33D90A244B76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63841DB1-0891-4687-8D70-1C02B78134F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63841DB1-0891-4687-8D70-1C02B78134F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63841DB1-0891-4687-8D70-1C02B78134F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63841DB1-0891-4687-8D70-1C02B78134F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

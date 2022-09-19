@@ -11,8 +11,8 @@
     </PropertyGroup>
 
     <PropertyGroup Label="Package">
-        <Version>2.10.3</Version>
-        <PackageReleaseNotes>Added number JSON serialization.</PackageReleaseNotes>
+        <Version>2.10.4</Version>
+        <PackageReleaseNotes>Added number JSON serialization unit tests.</PackageReleaseNotes>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>CodeChops.GenericMath</Title>
         <Description>
