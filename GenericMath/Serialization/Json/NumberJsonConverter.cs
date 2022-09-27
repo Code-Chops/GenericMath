@@ -1,9 +1,9 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace CodeChops.GenericMath.Serialization;
+namespace CodeChops.GenericMath.Serialization.Json;
 
-public class NumberJsonConverter<TNumber> : JsonConverter<Number<TNumber>>
+internal sealed class NumberJsonConverter<TNumber> : JsonConverter<Number<TNumber>>
 	where TNumber : struct, IComparable<TNumber>, IEquatable<TNumber>, IConvertible
 {
 	private static TypeCode ExpectedTypeCode { get; } = Type.GetTypeCode(typeof(TNumber));

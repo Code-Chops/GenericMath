@@ -1,5 +1,6 @@
 ﻿using System.Text.Json;
 using CodeChops.GenericMath.Serialization;
+using CodeChops.GenericMath.Serialization.Json;
 using Xunit;
 
 namespace CodeChops.GenericMath.UnitTests;

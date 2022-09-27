@@ -2,7 +2,7 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace CodeChops.GenericMath.Serialization;
+namespace CodeChops.GenericMath.Serialization.Json;
 
 public class NumberJsonConverterFactory : JsonConverterFactory
 {
