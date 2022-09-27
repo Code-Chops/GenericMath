@@ -11,8 +11,8 @@
     </PropertyGroup>
 
     <PropertyGroup Label="Package">
-        <Version>2.10.5</Version>
-        <PackageReleaseNotes>Updated packages and made classes sealed.</PackageReleaseNotes>
+        <Version>2.10.6</Version>
+        <PackageReleaseNotes>Made classes sealed or internal and added registration extension.</PackageReleaseNotes>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>CodeChops.GenericMath</Title>
         <Description>
@@ -53,6 +53,7 @@
 
     <ItemGroup Label="PackageReferences">
         <PackageReference Include="CodeChops.DomainDrivenDesign.DomainModeling" Version="0.29.1" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
         <PackageReference Include="System.Text.Json" Version="6.0.6" />
     </ItemGroup>
 
