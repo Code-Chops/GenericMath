@@ -1,5 +1,4 @@
 ﻿using System.Text.Json;
-using CodeChops.DomainDrivenDesign.DomainModeling.Serialization;
 using CodeChops.GenericMath.Serialization.Json;
 using Xunit;
 

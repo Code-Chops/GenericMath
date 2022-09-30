@@ -1,6 +1,5 @@
 ﻿using CodeChops.GenericMath.Serialization.Json;
 using Microsoft.Extensions.DependencyInjection;
-using CodeChops.DomainDrivenDesign.DomainModeling.Serialization;
 
 namespace CodeChops.GenericMath;
 
