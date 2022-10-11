@@ -11,7 +11,7 @@
     </PropertyGroup>
 
     <PropertyGroup Label="Package">
-        <Version>1.0.1</Version>
+        <Version>3.0.1</Version>
         <PackageReleaseNotes>Updated packages and changed Number.ToString().</PackageReleaseNotes>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>CodeChops.GenericMath</Title>
