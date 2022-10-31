@@ -1,6 +1,6 @@
 ﻿namespace CodeChops.GenericMath;
 
-public interface INumber : IValueObject
+public interface INumber
 {
 	Type GetIntegralType();
 }

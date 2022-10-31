@@ -14,15 +14,12 @@ public class NumberConversionTests
 	private static NumberWrapperContractMock NumberWrapperContract { get; } = new() { IntNumber = NumberInt, DoubleNumber = NumberDouble };
 	private const string NumberWrapperJson = @$"{{""{nameof(NumberWrapperContractMock.IntNumber)}"":7,""{nameof(NumberWrapperContractMock.DoubleNumber)}"":3.12}}";
 
-	static NumberConversionTests()
-	{
-		JsonSerialization.DefaultOptions.Converters.Add(new NumberJsonConverterFactory());
-	}
+	private static readonly JsonSerializerOptions JsonSerializerOptions = new() { Converters = { new NumberJsonConverterFactory() }};
 	
 	[Fact]
 	public void Deserialization_NumberInt_Is_Correct()
 	{
-		var number = JsonSerializer.Deserialize<Number<int>>(NumberIntJson, JsonSerialization.DefaultOptions);
+		var number = JsonSerializer.Deserialize<Number<int>>(NumberIntJson, JsonSerializerOptions);
 
 		Assert.Equal(typeof(Number<int>), number.GetType());
 		Assert.Equal(NumberInt.Value, number.Value);
@@ -31,7 +28,7 @@ public class NumberConversionTests
 	[Fact]
 	public void Serialization_NumberInt_Is_Correct()
 	{
-		var json = JsonSerializer.Serialize(NumberInt, JsonSerialization.DefaultOptions);
+		var json = JsonSerializer.Serialize(NumberInt, JsonSerializerOptions);
         
 		Assert.Equal(NumberIntJson, json);
 	}
@@ -39,7 +36,7 @@ public class NumberConversionTests
 	[Fact]
 	public void Deserialization_NumberDouble_Is_Correct()
 	{
-		var number = JsonSerializer.Deserialize<Number<double>>(NumberDoubleJson, JsonSerialization.DefaultOptions);
+		var number = JsonSerializer.Deserialize<Number<double>>(NumberDoubleJson, JsonSerializerOptions);
 
 		Assert.Equal(typeof(Number<double>), number.GetType());
 		Assert.Equal(NumberDouble.Value, number.Value);
@@ -48,7 +45,7 @@ public class NumberConversionTests
 	[Fact]
 	public void Serialization_NumberDouble_Is_Correct()
 	{
-		var json = JsonSerializer.Serialize(NumberDouble, JsonSerialization.DefaultOptions);
+		var json = JsonSerializer.Serialize(NumberDouble, JsonSerializerOptions);
         
 		Assert.Equal(NumberDoubleJson, json);
 	}
@@ -56,7 +53,7 @@ public class NumberConversionTests
 	[Fact]
 	public void Deserialization_NumberWrapper_Is_Correct()
 	{
-		var numberWrapper = JsonSerializer.Deserialize<NumberWrapperContractMock>(NumberWrapperJson, JsonSerialization.DefaultOptions)!;
+		var numberWrapper = JsonSerializer.Deserialize<NumberWrapperContractMock>(NumberWrapperJson, JsonSerializerOptions)!;
 		Assert.NotNull(numberWrapper);
 		
 		Assert.Equal(typeof(NumberWrapperContractMock), numberWrapper.GetType());
@@ -67,7 +64,7 @@ public class NumberConversionTests
 	[Fact]
 	public void Serialization_NumberWrapper_Is_Correct()
 	{
-		var json = JsonSerializer.Serialize(NumberWrapperContract, JsonSerialization.DefaultOptions);
+		var json = JsonSerializer.Serialize(NumberWrapperContract, JsonSerializerOptions);
         
 		Assert.Equal(NumberWrapperJson, json);
 	}
