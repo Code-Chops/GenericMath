@@ -11,8 +11,8 @@
     </PropertyGroup>
 
     <PropertyGroup Label="Package">
-        <Version>3.1.0</Version>
-        <PackageReleaseNotes>Does not reference DomainModeling package anymore.</PackageReleaseNotes>
+        <Version>3.1.1</Version>
+        <PackageReleaseNotes>Added DebuggerDisplay and simplified ToString output.</PackageReleaseNotes>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>CodeChops.GenericMath</Title>
         <Description>

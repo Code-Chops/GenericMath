@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System.Diagnostics;
+using System.Globalization;
 
 namespace CodeChops.GenericMath;
 
@@ -6,10 +7,11 @@ namespace CodeChops.GenericMath;
 /// From: https://codereview.stackexchange.com/questions/26022/generic-calculator-and-generic-number
 /// </summary>
 /// <typeparam name="T">Integral type</typeparam>
+[DebuggerDisplay("{Value}{GetIntegralText()}")]
 public readonly record struct Number<T>(T Value) : INumber, IComparable<Number<T>>
 	where T : struct, IComparable<T>, IEquatable<T>, IConvertible
 {
-	public override string ToString() => $"{this.Value}{this.GetIntegralText()}";
+	public override string? ToString() => this.Value.ToString(CultureInfo.InvariantCulture);
 	
 	public static Number<T> Zero { get; } = new();
 	
