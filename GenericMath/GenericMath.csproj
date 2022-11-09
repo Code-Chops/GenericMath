@@ -3,16 +3,16 @@
     <PropertyGroup Label="Main">
         <AssemblyName>CodeChops.GenericMath</AssemblyName>
         <RootNamespace>CodeChops.GenericMath</RootNamespace>
-        <TargetFramework>net6.0</TargetFramework>
-        <LangVersion>10</LangVersion>
+        <TargetFramework>net7.0</TargetFramework>
+        <LangVersion>11</LangVersion>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <EnablePreviewFeatures>true</EnablePreviewFeatures>
     </PropertyGroup>
 
     <PropertyGroup Label="Package">
-        <Version>3.1.1</Version>
-        <PackageReleaseNotes>Added DebuggerDisplay and simplified ToString output.</PackageReleaseNotes>
+        <Version>3.2.0</Version>
+        <PackageReleaseNotes>Updated to C# 11 and .NET 7 and updated packages.</PackageReleaseNotes>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>CodeChops.GenericMath</Title>
         <Description>
@@ -56,8 +56,8 @@
     </ItemGroup>
 
     <ItemGroup Label="PackageReferences">
-        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
-        <PackageReference Include="System.Text.Json" Version="6.0.6" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
+        <PackageReference Include="System.Text.Json" Version="7.0.0" />
     </ItemGroup>
 
 </Project>	
