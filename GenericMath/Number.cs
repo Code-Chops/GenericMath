@@ -11,7 +11,7 @@ namespace CodeChops.GenericMath;
 public readonly record struct Number<T>(T Value) : INumber, IComparable<Number<T>>
 	where T : struct, IComparable<T>, IEquatable<T>, IConvertible
 {
-	public override string? ToString() => this.Value.ToString(CultureInfo.InvariantCulture);
+	public override string ToString() => this.Value.ToString(CultureInfo.InvariantCulture);
 	
 	public static Number<T> Zero { get; } = new();
 	
