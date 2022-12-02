@@ -4,18 +4,20 @@ using System.Globalization;
 namespace CodeChops.GenericMath;
 
 /// <summary>
-/// From: https://codereview.stackexchange.com/questions/26022/generic-calculator-and-generic-number
+/// <para>A number of generic type <typeparamref name="T"/>>.</para>
+/// <para>See <see cref="Calculator{TNumber}"/> to perform calculations on this number.</para>
+/// <para>Adapter from: https://codereview.stackexchange.com/questions/26022/generic-calculator-and-generic-number</para>
 /// </summary>
-/// <typeparam name="T">Integral type</typeparam>
-[DebuggerDisplay("{Value}{GetIntegralText()}")]
-public readonly record struct Number<T>(T Value) : INumber, IComparable<Number<T>>
+/// <typeparam name="T">Numeric type</typeparam>
+[DebuggerDisplay("{Value}{GetSuffix()}")]
+public readonly record struct Number<T>(T Value) : INumber<T>
 	where T : struct, IComparable<T>, IEquatable<T>, IConvertible
 {
 	public override string ToString() => this.Value.ToString(CultureInfo.InvariantCulture);
 	
 	public static Number<T> Zero { get; } = new();
 	
-	public Type GetIntegralType() => typeof(T);
+	public Type GetNumericType() => typeof(T);
 
 	public int CompareTo(Number<T> other) 
 		=> this.Value.CompareTo(other.Value);
@@ -79,15 +81,14 @@ public readonly record struct Number<T>(T Value) : INumber, IComparable<Number<T
 
 	public static Number<T> operator ~(Number<T> a)
 		=> new(Calculator<T>.OnesComplement(a.Value));
-
-
+	
 	public static implicit operator Number<T>(T value) 
 		=> new(value);
 
 	public static implicit operator T(Number<T> value) 
 		=> value.Value;
 	
-	private string GetIntegralText()
+	private string? GetSuffix()
 	{
 		return this.Value switch
 		{
@@ -97,7 +98,7 @@ public readonly record struct Number<T>(T Value) : INumber, IComparable<Number<T
 			float	=> "F",
 			double	=> "D",
 			decimal => "M",
-			_		=> $" ({this.Value.GetType().Name})",
+			_		=> null,
 		};
 	}
 	

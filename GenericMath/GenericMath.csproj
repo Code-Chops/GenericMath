@@ -10,7 +10,7 @@
     </PropertyGroup>
 
     <PropertyGroup Label="Package">
-        <Version>3.2.2</Version>
+        <Version>3.3.0</Version>
         <PackageReleaseNotes>Removed enable preview features.</PackageReleaseNotes>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>CodeChops.GenericMath</Title>
@@ -22,7 +22,7 @@
         </Description>
         <PackageId>CodeChops.GenericMath</PackageId>
         <PackageProjectUrl>https://github.com/code-chops/GenericMath</PackageProjectUrl>
-        <PackageTags>CodeChops;CodeChops.GenericMath;CodeChops.GenericMath;GenericMaths;GenericMath;Generic maths;Generic math;Generic integrals;Generic integral;Generic calculation;</PackageTags>
+        <PackageTags>CodeChops;CodeChops.GenericMath;CodeChops.GenericMath;GenericMaths;GenericMath;Generic maths;Generic math;Generic numerics;Generic numeric;Generic calculation;</PackageTags>
         <PublishRepositoryUrl>true</PublishRepositoryUrl>
         <RepositoryUrl>https://github.com/code-chops/GenericMath</RepositoryUrl>
         <RepositoryType>Git</RepositoryType>

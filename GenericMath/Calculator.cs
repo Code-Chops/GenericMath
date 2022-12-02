@@ -1,8 +1,8 @@
 ﻿namespace CodeChops.GenericMath;
 
 /// <summary>
-/// Class to allow operations (like Add, Multiply, etc.) for generic types. This type should allow these operations themselves.
-/// From: https://codereview.stackexchange.com/questions/26022/generic-calculator-and-generic-number
+/// <para>Performs calculative operations (like add, multiply, etc.) on <see cref="Number{T}"/>.</para>
+/// <para>Adapted from: https://codereview.stackexchange.com/questions/26022/generic-calculator-and-generic-number</para>
 /// </summary>
 public static class Calculator<TNumber>
 	where TNumber : struct, IComparable<TNumber>, IEquatable<TNumber>, IConvertible
