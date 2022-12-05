@@ -8,5 +8,5 @@ Other features:
 
 
 ### Note:
-- This functionality can nowadays also be achieved by using the GenericMath functionality of .NET 7. C# 11 also has to be used because it makes use of static abstract members in interfaces the achieve its goal, which is introduced in C# 11. See: [Generic math](https://learn.microsoft.com/en-us/dotnet/standard/generics/math)
-- This code is adapted from: [Generic Calculator and Generic Number](https://codereview.stackexchange.com/questions/26022/generic-calculator-and-generic-number)
+- This functionality can nowadays also be achieved by using the GenericMath functionality of .NET 7. C# 11 also has to be used because it makes use of static abstract members in interfaces the achieve its goal, which is introduced in C# 11. See: [Microsoft - Generic math](https://learn.microsoft.com/en-us/dotnet/standard/generics/math)
+- This code is adapted from: [StackExchange - Generic Calculator and Generic Number](https://codereview.stackexchange.com/questions/26022/generic-calculator-and-generic-number)
