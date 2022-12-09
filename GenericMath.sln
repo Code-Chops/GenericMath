@@ -8,6 +8,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E3B74F64-7A0B-427F-8D38-9D687FF48C74}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
+		icon.png = icon.png
+		LICENSE = LICENSE
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericMath.UnitTests", "GenericMath.UnitTests\GenericMath.UnitTests.csproj", "{63841DB1-0891-4687-8D70-1C02B78134F5}"
