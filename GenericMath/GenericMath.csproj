@@ -10,8 +10,8 @@
     </PropertyGroup>
 
     <PropertyGroup Label="Package">
-        <Version>3.3.2</Version>
-        <PackageReleaseNotes>Moved License and Icon to solution folder.</PackageReleaseNotes>
+        <Version>3.3.3</Version>
+        <PackageReleaseNotes>Updated package references and README.md.</PackageReleaseNotes>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>CodeChops.GenericMath</Title>
         <Description>
@@ -52,7 +52,7 @@
     <ItemGroup Label="PackageAssets">
         <None Include="..\LICENSE" Pack="true" PackagePath="" />
         <None Include="..\icon.png" Pack="true" Visible="true" PackagePath="" />
-        <None Include="..\README.md" Pack="true" PackagePath="\"/>
+        <None Include="..\README.md" Pack="true" PackagePath="\" />
     </ItemGroup>
 
     <ItemGroup Label="InternalsVisibleTo">
@@ -62,7 +62,7 @@
 
     <ItemGroup Label="PackageReferences">
         <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
-        <PackageReference Include="System.Text.Json" Version="7.0.0" />
+        <PackageReference Include="System.Text.Json" Version="7.0.1" />
     </ItemGroup>
 
 </Project>	
