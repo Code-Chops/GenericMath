@@ -2,6 +2,8 @@
 
 Provides a way to perform generic math functions on the following numeric types: `byte`, `sbyte`, `decimal`, `double`, `float`, `int`, `uint`, `nint`, `nuint`, `long`, `ulong`, `short`, `ushort`. The following operations are supported: add, subtract, multiply, divide, modulo, negate, plus, increment, decrement, leftShift, rightShift, onesComplement, and, or, xor.
 
+> Check out [CodeChops projects](https://www.CodeChops.nl/projects) for more projects.
+
 Other features:
 - Supports converting at runtime (when the type to convert to/from is not known at compile time). 
 - Contains a JSON converter which cleanly and correctly converts these numbers from and to JSON.
